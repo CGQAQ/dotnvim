@@ -9,5 +9,5 @@ vim.keymap.set('n', '<C-m>', nvim_tree.fs.create, {})
 vim.keymap.set('n', '<C-t>', ":Mason<CR>")
 
 -- telescope
-vim.keymap.set('n', '<C-p>', ":Telescope<CR>")
-
+vim.keymap.set('n', '<C-p>', ":Telescope git_files prompt_prefix=🔍<CR>")
+vim.keymap.set('n', '<leader>f', ":Telescope find_files prompt_prefix=🔍<CR>")
