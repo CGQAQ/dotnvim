@@ -50,6 +50,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use "lvimuser/lsp-inlayhints.nvim"
 
+
+  -- themes
+  use 'Mofiqul/dracula.nvim'
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
