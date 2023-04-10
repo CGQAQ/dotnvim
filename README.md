@@ -5,7 +5,7 @@ Neovim config for my own.
 ```console
 cd ~
 mkdir .config # if not have
-git clone https://github.com/CGQAQ/dotnvim.git nvim
+git clone https://github.com/CGQAQ/dotnvim.git ~/.config/nvim
 ```
 
 thats it.
