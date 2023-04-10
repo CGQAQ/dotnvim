@@ -12,7 +12,7 @@ git clone https://github.com/CGQAQ/dotnvim.git ~/.config/nvim
 
 Windows
 ```console
-git clone ~/AppData/Local/nvim
+git clone https://github.com/CGQAQ/dotnvim.git ~/AppData/Local/nvim
 ```
 
 thats it.
