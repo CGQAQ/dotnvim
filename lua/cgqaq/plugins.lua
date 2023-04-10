@@ -26,6 +26,12 @@ return require('packer').startup(function(use)
 	  "nvim-tree/nvim-tree.lua",
 	  requires = { "nvim-tree/nvim-web-devicons" }
   }
+  use {
+	  "williamboman/mason.nvim",
+	  "williamboman/mason-lspconfig.nvim",
+	  "neovim/nvim-lspconfig",
+	  run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  }
 
   -- My plugins here
   -- use 'foo1/bar1.nvim'
