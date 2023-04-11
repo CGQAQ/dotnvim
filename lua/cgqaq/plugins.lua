@@ -55,8 +55,14 @@ return require('packer').startup(function(use)
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
-    -- Comment
+  -- Comment
   use "numToStr/Comment.nvim"
   use "folke/todo-comments.nvim"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
