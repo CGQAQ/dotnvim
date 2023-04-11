@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 
 -- nvim tree
 local nvim_tree = require("nvim-tree.api")
-vim.keymap.set({'n', 'i', 'v'}, '<C-n>', nvim_tree.tree.toggle, {})
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-n>', nvim_tree.tree.toggle, {})
 vim.keymap.set('n', '<C-m>', nvim_tree.fs.create, {})
 
 -- mason
@@ -12,6 +12,7 @@ vim.keymap.set('n', '<C-t>', ":Mason<CR>")
 vim.keymap.set('n', '<C-p>', ":Telescope git_files prompt_prefix=🔍<CR>")
 vim.keymap.set('n', '<leader>f', ":Telescope find_files prompt_prefix=🔍<CR>")
 
+vim.keymap.set("i", "<C-space>", require("cmp").mapping.complete)
 
 -------------------------------------------------------------------------------
 local opts = { noremap = true, silent = true }
@@ -58,3 +59,6 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+

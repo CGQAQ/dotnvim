@@ -5,7 +5,7 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = 2
-vim.o.scrolloff = 3
+vim.o.scrolloff = 6
 
 -- theme
 vim.cmd[[colorscheme dracula]]
