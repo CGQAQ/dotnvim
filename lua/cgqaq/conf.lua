@@ -7,10 +7,8 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = 2
 vim.o.scrolloff = 3
 
-
 -- theme
 vim.cmd[[colorscheme dracula]]
-
 local dracula = require("dracula")
 dracula.setup({
   -- customize dracula color palette
