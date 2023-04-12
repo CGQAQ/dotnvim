@@ -10,7 +10,8 @@ vim.keymap.set('n', '<C-t>', ":Mason<CR>")
 
 -- telescope
 vim.keymap.set('n', '<C-p>', ":Telescope git_files prompt_prefix=🔍<CR>")
-vim.keymap.set('n', '<leader>f', ":Telescope find_files prompt_prefix=🔍<CR>")
+vim.keymap.set('n', '<leader>fd', ":Telescope live_grep prompt_prefix=🔍<CR>")
+vim.keymap.set('n', '<leader>ff', ":Telescope find_files prompt_prefix=🔍<CR>")
 
 vim.keymap.set("i", "<C-space>", require("cmp").mapping.complete)
 
