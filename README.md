@@ -6,8 +6,8 @@ Neovim config for my own.
 - `F2-F8` harpoon list 1-7
 - `<leader>a` harpoon add file to list
 - `Ctrl-p` open telescope git files
-- `<leader>ff find files
-- `<leader>fd live grep
+- `<leader>ff` find files
+- `<leader>fd` live grep
 
 # HOW TO USE
 
