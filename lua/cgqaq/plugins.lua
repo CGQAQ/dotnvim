@@ -1,85 +1,66 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-    vim.cmd [[packadd packer.nvim]]
-    return true
+local ensure_lazy = function()
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+    })
   end
-  return false
+  vim.opt.rtp:prepend(lazypath)
 end
+ensure_lazy()
 
-local packer_bootstrap = ensure_packer()
+return require("lazy").setup({
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end
-  }
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
-  use {
-    "nvim-tree/nvim-tree.lua",
-    requires = { "nvim-tree/nvim-web-devicons" }
-  }
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-    'simrat39/rust-tools.nvim',
-    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-  }
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  {"nvim-telescope/telescope.nvim", version="0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
+
+  {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons", optional = true}},
+
+  {"nvim-tree/nvim-tree.lua", dependencies = {"nvim-tree/nvim-web-devicons"}},
+
+  { "williamboman/mason.nvim",
+    dependencies = {"williamboman/mason-lspconfig.nvim",
+                    "neovim/nvim-lspconfig",
+                    "simrat39/rust-tools.nvim",},
+    build = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  },
+
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-cmdline",
+  "hrsh7th/nvim-cmp",
   -- " For vsnip users.
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-  use "lvimuser/lsp-inlayhints.nvim"
-  use "folke/neodev.nvim"
-  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
-  use "moll/vim-bbye"
-  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end }
-  use {
-    'lewis6991/gitsigns.nvim',
+  "hrsh7th/cmp-vsnip",
+  "hrsh7th/vim-vsnip",
+  "lvimuser/lsp-inlayhints.nvim",
+  "folke/neodev.nvim",
+  { "akinsho/bufferline.nvim", version = "v3.*", dependencies = {"nvim-tree/nvim-web-devicons"} },
+  "moll/vim-bbye",
+  { "akinsho/toggleterm.nvim",
+    version = "*", 
     config = function()
-      require('gitsigns').setup()
+      require("toggleterm").setup()
     end
-  }
+  },
+
+  { "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end
+  },
 
   -- Comment
-  use "numToStr/Comment.nvim"
-  use "folke/todo-comments.nvim"
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
-
-  -- themes
-  use 'Mofiqul/dracula.nvim'
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
-
+  "numToStr/Comment.nvim",
+  "folke/todo-comments.nvim",
+  "JoosepAlviste/nvim-ts-context-commentstring",
+  "Mofiqul/dracula.nvim",
 
   -- copilot
-  use 'github/copilot.vim'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+  "github/copilot.vim"
+})
