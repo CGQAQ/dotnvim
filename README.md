@@ -1,6 +1,13 @@
 # dotnvim
 Neovim config for my own.
 
+# Key bindings
+- `Ctrl-E` open harpoon list
+- `F2-F8` harpoon list 1-7
+- `Ctrl-p` open telescope git files
+- `<leader>ff find files
+- `<leader>fd live grep
+
 # HOW TO USE
 
 Unix like
