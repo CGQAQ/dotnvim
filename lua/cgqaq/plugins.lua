@@ -17,7 +17,7 @@ ensure_lazy()
 return require("lazy").setup({
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
-  {"nvim-telescope/telescope.nvim", version="0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
+  {"nvim-telescope/telescope.nvim", version="0.1.5", dependencies = {"nvim-lua/plenary.nvim"}},
 
   {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons", optional = true}},
 
