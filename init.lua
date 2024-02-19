@@ -1,5 +1,6 @@
 require("cgqaq.plugins")
-require("cgqaq.configs")
+require("cgqaq.keymaps")
 
 require("cgqaq.conf")
-require("cgqaq.keymaps")
+require("cgqaq.configs")
+require("cgqaq.filetype")

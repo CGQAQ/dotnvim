@@ -17,7 +17,13 @@ ensure_lazy()
 return require("lazy").setup({
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
+  -- files and navigation
   {"nvim-telescope/telescope.nvim", version="0.1.5", dependencies = {"nvim-lua/plenary.nvim"}},
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 
   {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons", optional = true}},
 
