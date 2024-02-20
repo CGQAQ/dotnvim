@@ -25,7 +25,7 @@ return require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" }
   },
 
-  {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons", optional = true}},
+  {"nvim-lualine/lualine.nvim", dependencies = {"nvim-tree/nvim-web-devicons"}},
 
   { "williamboman/mason.nvim",
     dependencies = {"williamboman/mason-lspconfig.nvim",
@@ -44,7 +44,7 @@ return require("lazy").setup({
   "hrsh7th/vim-vsnip",
   "lvimuser/lsp-inlayhints.nvim",
   "folke/neodev.nvim",
-  { "akinsho/bufferline.nvim", version = "v3.*", dependencies = {"nvim-tree/nvim-web-devicons"} },
+  -- { "akinsho/bufferline.nvim", version = "v3.*", dependencies = {"nvim-tree/nvim-web-devicons"} },
   "moll/vim-bbye",
   { "akinsho/toggleterm.nvim",
     version = "*", 
