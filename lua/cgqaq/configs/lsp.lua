@@ -1,13 +1,13 @@
 ---- Setup language servers.
---local lspconfig = require('lspconfig')
---local capabilities = require('cmp_nvim_lsp').default_capabilities()
---for k,v in pairs(lspconfig) do
---	if v.setup ~= nil then
---		v.setup {
-  --			capabilities=capabilities,
-  --		}
-  --	end
-  --end
+local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+for k,v in pairs(lspconfig) do
+	if v.setup ~= nil then
+		v.setup {
+  			capabilities=capabilities,
+  		}
+  	end
+end
 
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
